@@ -24,9 +24,9 @@ class Server {
     }
 
     routes() {
-        this.app.get('/', ( req, res) => {
-            res.send('Hello World');
-        });
+
+        this.app.use('/api/users', require('../routes/user'));
+  
     }
 
     listen() {
