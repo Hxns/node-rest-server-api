@@ -5,11 +5,22 @@ class Server {
     constructor() {
         this.app = express()
         this.port = process.env.PORT;
+
+        //Middlewares
+        this.middlewares();
+
+        //Routes of my app
         
         this.routes();
     }
 
-    routes(){
+    middlewares() {
+
+        this.app.use( express.static('public') );
+
+    }
+
+    routes() {
         this.app.get('/', ( req, res) => {
             res.send('Hello World');
         });
