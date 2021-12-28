@@ -6,6 +6,7 @@ class Server {
     constructor() {
         this.app = express()
         this.port = process.env.PORT;
+        this.usersPath = '/api/users';
 
         //Middlewares
         this.middlewares();
@@ -25,12 +26,12 @@ class Server {
 
     routes() {
 
-        this.app.use('/api/users', require('../routes/user'));
+        this.app.use( this.usersPath, require('../routes/user'));
   
     }
 
     listen() {
-        this.app.listen(this.port, () => {
+        this.app.listen( this.port, () => {
             console.log('Server running on port', this.port );
         });
     }
