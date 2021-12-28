@@ -1,6 +1,5 @@
 const { response } = require('express');
 
-
 const userGet = (req, res = response) => {
 
     res.json({
@@ -41,11 +40,10 @@ const userPath = (req, res = response) => {
 
 }
 
-
 module.exports = {
     userGet,
     userPut,
     userPost,
     userDelete,
-    userPath,
+    userPath
 }
